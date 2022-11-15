@@ -1,2 +1,2 @@
 # Django_practice
-Django
+Django learning

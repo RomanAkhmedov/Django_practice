@@ -2,6 +2,13 @@ from django.db import models
 
 
 class Bb(models.Model):
+    KINDS = (
+        (None, 'Выберите тип публикуемого объявления'),
+        ('b', 'Куплю'),
+        ('s', 'Продам'),
+        ('c', 'Обменяю'),
+    )
+    kind = models.CharField(max_length=1, choices=KINDS, blank=True, verbose_name='Тип')
     title = models.CharField(max_length=50, verbose_name='Товар')
     content = models.TextField(null=True, blank=True, verbose_name='Описание')
     price = models.FloatField(null=True, blank=True, verbose_name='Цена')

@@ -3,6 +3,7 @@ from .views import *
 
 urlpatterns = [
     path('', index, name='home_newsblock'),
+    path('about/', about, name='about_newsblock'),
     path('cats/<int:catid>/', categories),
     re_path(r'^archive/(?P<year>[0-9]{4})/', archive)
 ]

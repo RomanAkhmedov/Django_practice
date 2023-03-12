@@ -23,8 +23,8 @@ from musicblock.views import *
 
 urlpatterns = [
     path('admin/', admin.site.urls),
-    path('newsblock/', include('newsblock.urls')),
-    path('', include('musicblock.urls'))
+    path('', include('newsblock.urls')),
+    path('musicblock/', include('musicblock.urls'))
 ]
 
 if settings.DEBUG:

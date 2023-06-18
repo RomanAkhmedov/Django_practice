@@ -1,3 +1,15 @@
 from django.db import models
 
-# Create your models here.
+
+class Music(models.Model):
+    album = models.CharField(max_length=100)
+    author = models.CharField(max_length=50)
+    genre = models.CharField(max_length=40)
+    country = models.CharField(max_length=40)
+    image = models.ImageField(upload_to='photos/%Y/%m/%d/')
+    time_create = models.DateTimeField(auto_now_add=True)
+    time_update = models.DateTimeField(auto_now=True)
+    is_published = models.BooleanField(default=True)
+
+    def __str__(self):
+        return self.album

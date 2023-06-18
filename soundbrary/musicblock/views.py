@@ -1,9 +1,19 @@
 from django.http import HttpResponse, HttpResponseNotFound, Http404
 from django.shortcuts import render, redirect
+from .models import Music
+
+
+menu = ['О сайте', 'Добавить альбом', 'Обратная связь', 'Войти']
 
 
 def index(request):
-    return HttpResponse('<h1>Страница приложения MusicBlock</h1>')
+    music_posts = Music.objects.all()
+    return render(request, 'musicblock/index.html',
+                  {'posts': music_posts, 'menu': menu, 'title': 'Страница приложения MusicBlock'})
+
+
+def about(request):
+    return render(request, 'musicblock/about.html', {'menu': menu, 'title': 'О сайте'})
 
 
 def categories(request, catid):
